@@ -16,7 +16,9 @@
 		0E5160942859DDE500728650 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5160932859DDE500728650 /* ContentView.swift */; };
 		0E5160972859DE2200728650 /* GalleyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5160962859DE2200728650 /* GalleyView.swift */; };
 		0E51609A2859DE4600728650 /* RootModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5160992859DE4600728650 /* RootModel.swift */; };
-		0E51609C2859DF6C00728650 /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E51609B2859DF6C00728650 /* AppModel.swift */; };
+		0E51609F2859E89800728650 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E51609E2859E89800728650 /* Router.swift */; };
+		0E5160A12859E8AF00728650 /* RouteMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5160A02859E8AF00728650 /* RouteMatcher.swift */; };
+		0E5160A42859E8DA00728650 /* GalleryRouteMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5160A32859E8DA00728650 /* GalleryRouteMatcher.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,7 +32,9 @@
 		0E5160932859DDE500728650 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		0E5160962859DE2200728650 /* GalleyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleyView.swift; sourceTree = "<group>"; };
 		0E5160992859DE4600728650 /* RootModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootModel.swift; sourceTree = "<group>"; };
-		0E51609B2859DF6C00728650 /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
+		0E51609E2859E89800728650 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		0E5160A02859E8AF00728650 /* RouteMatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteMatcher.swift; sourceTree = "<group>"; };
+		0E5160A32859E8DA00728650 /* GalleryRouteMatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryRouteMatcher.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,7 @@
 		0E51607F2858E17300728650 /* NavigationStack */ = {
 			isa = PBXGroup;
 			children = (
+				0E51609D2859E88F00728650 /* Router */,
 				0E5160982859DE3B00728650 /* Root */,
 				0E5160952859DE0A00728650 /* Gallery */,
 				0E51608E2859DC8B00728650 /* Tab */,
@@ -104,9 +109,26 @@
 			children = (
 				0E5160822858E17300728650 /* RootView.swift */,
 				0E5160992859DE4600728650 /* RootModel.swift */,
-				0E51609B2859DF6C00728650 /* AppModel.swift */,
 			);
 			path = Root;
+			sourceTree = "<group>";
+		};
+		0E51609D2859E88F00728650 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				0E5160A22859E8BE00728650 /* Matchers */,
+				0E51609E2859E89800728650 /* Router.swift */,
+				0E5160A02859E8AF00728650 /* RouteMatcher.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		0E5160A22859E8BE00728650 /* Matchers */ = {
+			isa = PBXGroup;
+			children = (
+				0E5160A32859E8DA00728650 /* GalleryRouteMatcher.swift */,
+			);
+			path = Matchers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -182,8 +204,10 @@
 				0E5160902859DC9700728650 /* Tab.swift in Sources */,
 				0E5160942859DDE500728650 /* ContentView.swift in Sources */,
 				0E51609A2859DE4600728650 /* RootModel.swift in Sources */,
-				0E51609C2859DF6C00728650 /* AppModel.swift in Sources */,
+				0E5160A42859E8DA00728650 /* GalleryRouteMatcher.swift in Sources */,
+				0E51609F2859E89800728650 /* Router.swift in Sources */,
 				0E5160972859DE2200728650 /* GalleyView.swift in Sources */,
+				0E5160A12859E8AF00728650 /* RouteMatcher.swift in Sources */,
 				0E5160922859DCA900728650 /* TabModel.swift in Sources */,
 				0E5160832858E17300728650 /* RootView.swift in Sources */,
 				0E5160812858E17300728650 /* NavigationStackApp.swift in Sources */,

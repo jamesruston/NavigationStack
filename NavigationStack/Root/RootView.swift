@@ -15,17 +15,27 @@ struct RootView: View {
     @StateObject var rootModel = RootModel()
     
     var body: some View {
-        TabView(selection: $rootModel.selectedTab) {
-            ForEach(rootModel.tabs) { tabModel in
-                ContentView(tabModel: tabModel)
-                    .tag(tabModel.tab)
-                    .tabItem {
-                        Label(tabModel.tab.rawValue.capitalized, systemImage: tabModel.tab.imageName)
-                    }
-                    
+        VStack {
+            Text("Navigation depth: \(rootModel.selectedTabModel.navigationPath.count)")
+            Text("Selected tab: \(rootModel.selectedTabModel.tab.rawValue)")
+            Button {
+                rootModel.selectedTabModel.navigationPath = .init()
+            } label: {
+                Text("Reset navigation stack")
             }
+
+            TabView(selection: $rootModel.selectedTab) {
+                ForEach(rootModel.tabs) { tabModel in
+                    ContentView(tabModel: tabModel)
+                        .tag(tabModel.tab)
+                        .tabItem {
+                            Label(tabModel.tab.rawValue.capitalized, systemImage: tabModel.tab.imageName)
+                        }
+                    
+                }
+            }
+            .environmentObject(rootModel)
         }
-        .environmentObject(rootModel)
     }
 }
 

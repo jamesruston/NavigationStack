@@ -8,8 +8,25 @@
 import SwiftUI
 
 struct GalleryView: View {
+    @EnvironmentObject var rootModel: RootModel
     let id: String
+    @State var nextGalleryId: String = ""
+    var galleryRoute: String {
+        "http://www.example.com/gallery/" + nextGalleryId
+    }
     var body: some View {
-        Text("I'm a gallery for id: \(id)")
+        List {
+            Section("Current Gallery") {
+                Text("I'm a gallery for id: \(id)")
+            }
+            Section("Onward journey") {
+                TextField("Gallery ID", text: $nextGalleryId)
+                Button {
+                    rootModel.deepLink(to: URL(string: galleryRoute)!)
+                } label: {
+                    Text("Route via deep link to:\n\(galleryRoute)")
+                }
+            }
+        }.listStyle(.insetGrouped)
     }
 }

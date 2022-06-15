@@ -6,15 +6,24 @@
 //
 
 import SwiftUI
+import Combine
 
 class RootModel: ObservableObject {
     @Published var selectedTab: Tab = .home
     private let router = Router()
+    private var cancellables = Set<AnyCancellable>()
     
     let tabs: [TabModel]
     
     init() {
         tabs = Tab.allCases.map { TabModel(tab: $0) }
+        
+        tabs.forEach { tabModel in
+            tabModel.$navigationPath.sink { _ in
+                self.objectWillChange.send()
+            }
+            .store(in: &cancellables)
+        }
     }
     
     var selectedTabModel: TabModel {
